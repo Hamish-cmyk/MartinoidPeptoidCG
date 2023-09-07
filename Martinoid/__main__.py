@@ -64,21 +64,6 @@ if __name__ == "__main__":
     parser.add_argument('--linear', action='store_true', help='Apply loose 180 BB-BB-BB-BB dihedral')
     parser.add_argument('--helical', action='store_true', help='Apply rigid 90 degree BB-BB-BB-BB dihedral')
     
-    # =============================================================================
-    # parser.add_argument('--time', type=str, help='String time (archie style)')
-    # 
-    # # Optional argument
-    # parser.add_argument('--nmol', type=int, help='An optional integer argument')
-    # 
-    # parser.add_argument('--cpu', type=int, help='Number of cpus')
-    # 
-    # parser.add_argument('--electro', type=str, help='String electrostatics')
-    # parser.add_argument('--reproduce', type=str, help='String electrostatics')
-    # 
-    # parser.add_argument('--skipQcheck', action='store_true', help='A boolean switch')
-    # parser.add_argument('--cphmd', action='store_true', help='A boolean switch')
-    # parser.add_argument('--cphmd_force', action='store_true', help='A boolean switch')
-    # =============================================================================
     
     args = parser.parse_args()
     
@@ -95,10 +80,8 @@ if __name__ == "__main__":
     Helical = args.helical
     # check that they haven't specified linear and helical together
     assert int(Linear)+int(Helical < 2), "You cannot species --linear and --helical, its one, the other or neither."
-    
-    print("NTC:", NTC)
-    
-    print(args)
+
+    #print(args)
     
     peptoid = Martinoid(Sequence, NTC, CTC, NTCC, CTCC, Linear, Helical)
     

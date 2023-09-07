@@ -14,18 +14,18 @@ A key difference between Martinoid and Martinize is that the former does not req
 	pip install .
 
 ## Usage
-
+### As a standalone program
 The primary argument passed is the peptoid sequence, this must be in the correct format according to the Glasgow convention (https://doi.org/10.17868/strath.00085559).
 
 Martinoid can either be used directly from the terminal once installed:
 For example:
-
-	python -m Martinoid --seq "Na-Nt-Nfe"
-
+```bash
+python -m Martinoid --seq "Na-Nt-Nfe"
+```
 Which will output two files: Na-Nt-Nfe.itp & Na-Nt-Nfe.pdb
 
 The topology (Na-Nt-Nfe.itp) looks like:
-```
+```erlang
 [ moleculetype ]
 ; Name         Exclusions
 Peptoid   1
@@ -69,5 +69,16 @@ Peptoid   1
 }
 ```
 
-and the coordinates (Na-Nt-Nfe.pdb) has a guess structure which looks like:
+The coordinates (Na-Nt-Nfe.pdb) has a guess structure which looks like (which is not a terible guess and can easily be minimized during the gromacs minimization step):
 ![alt text](images/Na-Nt-Nfe.png "Na-Nt-Nfe.pdb")
+
+### As a Python module
+Martinoid can be used as module in python which can make screening large numbers of peptoids in different simulation settings easier.
+
+After installing Martinoid, simply import the module and pass the sequence and arguments. For instances if we wanted to make a helical sequence of Nf-Nfe-Nq-Nm-NmO-Nv-Nv-Nv with a neutral N-terminus:
+
+```python
+import Martinoid
+
+peptoid = Martinoid.Martinoid(sequence = "Nf-Nfe-Nq-Nm-NmO-Nv-Nv-Nv", NTC=True, Helical=True)
+```

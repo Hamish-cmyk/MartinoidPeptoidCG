@@ -20,3 +20,7 @@ slurm*
 *.pdb
 *.top
 *.gro
+*.mdp
+*#*
+*.tpr
+*.log
