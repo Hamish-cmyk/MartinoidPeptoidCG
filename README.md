@@ -70,6 +70,7 @@ Peptoid   1
 ```
 
 The coordinates (Na-Nt-Nfe.pdb) has a guess structure which looks like (which is not a terible guess and can easily be minimized during the gromacs minimization step):
+
 ![alt text](images/Na-Nt-Nfe.png "Na-Nt-Nfe.pdb")
 
 ### As a Python module
