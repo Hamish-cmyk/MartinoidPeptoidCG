@@ -13,7 +13,8 @@ setup(
                       'pandas',
                       'numpy',
                       'mdtraj',
-                      'matplotlib'
+                      'matplotlib',
+                      'argparse'
                       ],
 
     classifiers=[

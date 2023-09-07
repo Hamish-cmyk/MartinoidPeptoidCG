@@ -6,7 +6,7 @@ Created on Tue Aug 17 18:22:22 2021
 """
 from Martinoid._martinoid_data import *
 import numpy as np
-import pandas, sys, time
+import pandas, sys, time, argparse
 import warnings
 import mdtraj
 from matplotlib import pyplot as plt, colors
@@ -17,46 +17,11 @@ DEBUG   = True
 Linear  = False
 Helical = False
 
+
+
 if len(sys.argv) < 3:
     if '-h' in sys.argv or "--help" in sys.argv:
-        statement = '''\n\n
-        Martinoid2.py is a script to create Coarse Grain Martinoid 
-        input files of peptoids, ready for use in the molecular 
-        dynamics simulations package Gromacs.\n
-        Primary input/output
-        --------------------
-        Martinoid2.py [sequence] [Flags] [Secondary Structure]\n\n
-        Sequence             -- Written using the Glasgow convention (https://doi.org/10.17868/strath.00085559)
-                                with a '-' spacer between each molecules (Example: tri sarcosine would be 'Na-Na-Na').\n\n
-        Flags                -- Martinoid allows users to explicitly set termini backbone charge states:\n
-                                -nt  : is a neutral N- terminus with hydrogen bonding acceptor and donor character.
-                                -ntc : is an acetylated N-terminus with only hydrogen bonding acceptor character.
-                                -ct  : is a neutral carboxylate C-terminus.
-                                -ctc : is a charged carboxylate C-terminus with acceptor character\n
-                                If no flag is provided then the script defaults to a charged donor N-terminus (Qd) and a
-                                non-polar amidated C-terminus (Nda) which reflects many cases in the literature.\n\n
-        Secondary Structure --  Martinoid version 1.0 has two secondary structure options for sequences longer than trimers: 
-                                'Linear' and 'Helical'. The former has a loose linear backbone dihedral while the latter has
-                                rigid angle/dihedrals to enforce a Right Handed (RH) helix. Additional secondary structures 
-                                are planned for future versions.\n
-        Output              --  Martinoid will produce an *itp and *pdb file for the given structure. The *itp file is ready 
-                                to use with the molecule name "Peptoid" which can be used as a t-coupling group. The *pdb
-                                structure will require minimization/equilibration prior to use, though is adequate for system
-                                construction.\n 
-        Directory Structure
-        ----------------   
-        To function correctly "Martinoid2.py" must be in the directory above ~/Data and in the same directory as "_martinoid_data.py".
-        We have found it useful to make sub-dirs within a "Martinoid" directory, generate *itp files in these and then reference to these 
-        from elsewhere in the file system. 
-                        
-        Additional Notes
-        ----------------     
-        The popular chiral residues (Nfes/Nfer), for which handedness is lost through coarse graining, are represented by a single monomer 
-        'Nfex' which reproduces their non-bonded character through bead type selection. The sarcosine monomer, Na, has the resname 'Nx' because
-        Gromacs interprets 'Na' as an ion and then proceeds to cause drama.\n
-        
-        Happy CG Peptoid Simulating!\n\n\t(Hamish W. A. Swanson, hamish.swanson@strath.ac.uk, 05.09.2023)
-        '''
+
         print(statement)
         sys.exit()
     else:

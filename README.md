@@ -12,3 +12,5 @@ This module was inspired by martinize (http://cgmartini.nl/index.php/tools2/prot
 	pip install .
 
 ## Usage
+
+python -m Martinoid
