@@ -229,7 +229,7 @@ Peptoid   1\n
             charge = charges[typ]
             writ = f"\t{i}\t{typ}\t{resnum}\t{resname}\t{B}\t {i}  {charge} ; \n"
             print(writ)
-            itp.write(f"\t{i}\t{typ}\t{resnum}\t{resname}\t{B}\t {i}  {charge} ; \n")
+            itp.write(writ)
         itp.write("\n[ bonds ]\n")
         for bond in self.bonds.index:
             i = int(self.bonds.at[bond, "i"]+1)
@@ -256,17 +256,17 @@ Peptoid   1\n
             Angle = self.angles.at[angle, "angle"]
             FC = self.angles.at[angle, "FC"]
             #############################
-            type = '2'
+            Type = '2'
             comment = self.angles.at[angle, "comment"]
             if Angle == 'X' and FC == 'Y':
                 Angle  = '0'
                 FC     = '1'
-                type   = '8'
+                Type   = '8'
                 ignore = f'{i} {k}'
                 exclude.append(ignore)
                 comment = 'DW_Potential'
             #############################
-            itp.write(f"\t{i}\t{j}\t{k}\t{type}\t{Angle}\t{FC} ; {comment}\n")
+            itp.write(f"\t{i}\t{j}\t{k}\t{Type}\t{Angle}\t{FC} ; {comment}\n")
         if self.dihedrals.shape[0] > 0:
             itp.write("\n[ dihedrals ]\n")
             for dihe in self.dihedrals.index:
