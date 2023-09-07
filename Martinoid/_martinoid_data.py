@@ -100,7 +100,8 @@ SideChainCoords["Nwe"]  = copy.copy(SideChainCoords["Nfnap"])
 PseudoAtoms = {}
 
 def ParseData(res, typ):
-    beads, bonds, angles, dihedrals, BB, AL, AH, DL,DH = readin(f"/users/fjb15167/Martinoid-main/Data/{res}.csv").split("#"*60 + "\n")        ## update with requried path
+    directory = os.path.dirname(__file__) # __file__ is the absolute path of _martinoid_data
+    beads, bonds, angles, dihedrals, BB, AL, AH, DL,DH = readin(f"{directory}/Data/{res}.csv").split("#"*60 + "\n")        ## update with requried path
     if typ.lower() == "beads":
         return pandas.read_csv(io.StringIO(beads), index_col=0)
     elif typ.lower() == "bonds":
