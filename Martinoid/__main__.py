@@ -8,6 +8,7 @@ Created on Thu Sep  7 11:02:13 2023
 # Here is the behavior we want it to execute if it is run as a standalone program, ie. like python -m Martinioid ...
 
 import argparse
+from Martinoid.Martinoid2 import *
 
 statement = '''
 Martinoid2.py is a script to create Coarse Grain Martinoid 
@@ -83,6 +84,7 @@ if __name__ == "__main__":
     
     # Check we have the required arguments
     assert isinstance(args.seq, str), "A valid peptoid sequence must be specified with the --seq parameter, such as --seq Na-Na-Na" + statement
+    Sequence = args.seq
     
     #Set variables from the optional arguements
     NTC  = True if args.nt == False else False
@@ -97,4 +99,6 @@ if __name__ == "__main__":
     print("NTC:", NTC)
     
     print(args)
-        
+    
+    peptoid = Martinoid(Sequence, NTC, CTC, NTCC, CTCC, Linear, Helical)
+    
