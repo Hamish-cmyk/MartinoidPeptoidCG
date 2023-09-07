@@ -26,6 +26,10 @@ def replace_in_file2(fname, original, new):
     content = content.replace(original, new)
     with open(fname, 'w') as outfile:
         outfile.write(content)
+        
+class _martinoid_data:
+    def __init__(self):
+        pass
 
 charges = {"Na":0.0, "Qa":-1.0, "Qd":1.0, "Qda":1.0,"N0":0.0, "Nda": 0.0,
            "P1":0.0, "P2":0.0, "P3":0.0, "P4":0.0, "P5":0.0,

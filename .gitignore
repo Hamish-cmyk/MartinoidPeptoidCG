@@ -15,3 +15,4 @@ slurm*
 *.xyz
 *.sh
 *.bak
+*.pyc

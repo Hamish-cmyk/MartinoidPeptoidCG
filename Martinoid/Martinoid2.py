@@ -4,7 +4,7 @@ Created on Tue Aug 17 18:22:22 2021
 
 @author: avtei
 """
-from _martinoid_data import *
+from Martinoid._martinoid_data import *
 import numpy as np
 import pandas, sys, time
 import warnings
@@ -18,7 +18,7 @@ Linear  = False
 Helical = False
 
 if len(sys.argv) < 3:
-    if '--h' in sys.argv:
+    if '-h' in sys.argv:
         statement = '''\n\n
         Martinoid2.py is a script to create Coarse Grain Martinoid 
         input files of peptoids, ready for use in the molecular 
