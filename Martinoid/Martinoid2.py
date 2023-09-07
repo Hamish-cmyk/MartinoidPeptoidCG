@@ -18,7 +18,7 @@ Linear  = False
 Helical = False
 
 if len(sys.argv) < 3:
-    if '-h' in sys.argv:
+    if '-h' in sys.argv or "--help" in sys.argv:
         statement = '''\n\n
         Martinoid2.py is a script to create Coarse Grain Martinoid 
         input files of peptoids, ready for use in the molecular 
