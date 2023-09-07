@@ -16,3 +16,7 @@ slurm*
 *.sh
 *.bak
 *.pyc
+*.itp
+*.pdb
+*.top
+*.gro
