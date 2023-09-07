@@ -42,7 +42,7 @@ class Martinoid:
             # "AL" is angle linear | "AH" is angle helical
             if np.where(self.beads["i"]=="BB")[0].shape[0] >= 3:
                 BB = np.where(self.beads["i"]=="BB")[0][-3:]
-                if Helical == True:
+                if self.Helical == True:
                     self.angles.loc[self.angles.index.shape[0]] = [BB[0], BB[1], BB[2], ParseData(self.seq[seq_i-2], "AH")[0],ParseData(previous_BB_residue, "AH")[1], "BB-BB-BB"]
                 else:
                     self.angles.loc[self.angles.index.shape[0]] = [BB[0], BB[1], BB[2], ParseData(previous_BB_residue, "AL")[0],ParseData(previous_BB_residue, "AL")[1], "BB-BB-BB"]
@@ -50,7 +50,7 @@ class Martinoid:
             # Add BB-BB-BB-BB dihedral
             # "DL" is dihedral linear | "DH" is dihedral helical
             if np.where(self.beads["i"]=="BB")[0].shape[0] >= 4:
-                if Helical == True:
+                if self.Helical == True:
                     BB = np.where(self.beads["i"]=="BB")[0][-4:]
                     self.dihedrals.loc[self.dihedrals.index.shape[0]] = [BB[0], BB[1], BB[2], BB[3], ParseData(self.seq[seq_i-3], "DH")[0],ParseData(self.seq[seq_i-3], "DH")[1], "BB-BB-BB-BB"]
                 else:
@@ -277,7 +277,7 @@ Peptoid   1\n
                 dihedral = self.dihedrals.at[dihe, "dihedral"]
                 FC = self.dihedrals.at[dihe, "FC"]
                 if self.dihedrals.at[dihe, "comment"] == "BB-BB-BB-BB":
-                    if Helical == True:
+                    if self.Helical == True:
                         comment = self.dihedrals.at[dihe, "comment"]
                         print(f"\t{i}\t{j}\t{k}\t{l}\t1\t{dihedral}\t{FC}\t1 ; {comment}")
                         itp.write(f"\t{i}\t{j}\t{k}\t{l}\t1\t{dihedral}\t{FC}\t1 ; {comment} \n")
@@ -302,6 +302,8 @@ Peptoid   1\n
         self.CTC = CTC
         self.NTCC = NTCC
         self.CTCC = CTCC
+        self.Linear = Linear
+        self.Helical = Helical
         print("Name:", name)
         # Setup dataframes
         ##############################################################################################

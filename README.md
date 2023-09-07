@@ -17,4 +17,9 @@ A key difference between Martinoid and Martinize is that the former does not req
 
 The primary argument passed is the peptoid sequence, this must be in the correct format according to the Glasgow convention (https://doi.org/10.17868/strath.00085559).
 
-python -m Martinoid --seq "Na-Na"
+Martinoid can either be used directly from the terminal once installed:
+For example:
+
+	python -m Martinoid --seq "Na-Na"
+
+   
