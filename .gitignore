@@ -1,0 +1,17 @@
+dask-worker-space
+*.parquet
+*.memmap
+*.hdf5
+*.exe
+*.gbw
+*.hess
+*.cpcm
+*.opt
+*.engrad
+*.txt
+slurm*
+*.densities
+*.inp
+*.xyz
+*.sh
+*.bak
