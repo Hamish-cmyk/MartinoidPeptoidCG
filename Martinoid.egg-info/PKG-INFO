@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Martinoid
-Version: 0.0.3
+Version: 0.0.4
 Summary: This module was inspired by martinize (http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize) and has been created to perform automatic topology building of peptoids within the MARTINI forcefield (v2.1) in the GROMACS program.
 Home-page: https://github.com/Hamish-cmyk/MartinoidPeptoidCG
 Author: Hamish W. A. Swanson, Alexander van Teijlingen
