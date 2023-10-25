@@ -94,7 +94,7 @@ SideChainCoords["Nfe"]  = copy.copy(SideChainCoords["Nw"])
 SideChainCoords["Nfp"]  = copy.copy(SideChainCoords["Nw"])
 ############################################################ five-bead SC
 SideChainCoords["NfeB4"] = copy.copy(SideChainCoords["Nfnap"])
-SideChainCoords["NfeC3"] = copy.copy(SideChainCoords["Nfnap"])
+SideChainCoords["NfeC4"] = copy.copy(SideChainCoords["Nfnap"])
 SideChainCoords["Nwe"]  = copy.copy(SideChainCoords["Nfnap"])
 
 PseudoAtoms = {}
