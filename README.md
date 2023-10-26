@@ -89,4 +89,11 @@ peptoid = Martinoid.Martinoid(sequence = "Nf-Nfe-Nq-Nm-NmO-Nv-Nv-Nv", NTC=True, 
 ```
 
 # Running Simulations
-... need xvg files
+
+Martinoid uses a custom bonded parameter to account for non-harmonic function based on different S/R isomers. You must include this xvg file when you call mdrun.
+
+```bash
+gmx mdrun -tableb angle5_a0.xvg -deffnm Run
+```
+
+
