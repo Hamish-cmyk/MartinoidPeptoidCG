@@ -121,26 +121,26 @@ class Martinoid:
         ###############################################################################
         ## Single Mononmer Case
         if len(self.seq) == 1:
-            if self.NTC:
+            if self.N_ter_charged:
                 self.beads.at[self.beads[self.beads["i"] == "BB"].index[0], "type"] = "Qd"
             else:
                 self.beads.at[self.beads[self.beads["i"] == "BB"].index[0], "type"] = "Nda"
         ## Dimers and Beyond
         else:
             ####################################################################
-            if self.NTC:
+            if self.N_ter_charged:
                 self.beads.at[self.beads[self.beads["i"] == "BB"].index[0], "type"] = "Qd"
             else:
-                if self.NTCC:
+                if self.N_ter_protect:
                     self.beads.at[self.beads[self.beads["i"] == "BB"].index[0], "type"] = "Na"     ## Acylated NTER
                 else:
                     self.beads.at[self.beads[self.beads["i"] == "BB"].index[0], "type"] = "Nda"    ## Neutral NTER
             ####################################################################
-            if self.CTC:
-                self.beads.at[self.beads[self.beads["i"] == "BB"].index[-1], "type"] = "Nda"       ## Amidated CTER
+            if self.C_ter_charged:
+                self.beads.at[self.beads[self.beads["i"] == "BB"].index[-1], "type"] = "Qa"    ## Charged CTER
             else:
-                if self.CTCC:
-                    self.beads.at[self.beads[self.beads["i"] == "BB"].index[-1], "type"] = "Qa"    ## Charged CTER
+                if self.C_ter_protect:
+                    self.beads.at[self.beads[self.beads["i"] == "BB"].index[-1], "type"] = "Nda"       ## Amidated CTER    
                 else:
                     self.beads.at[self.beads[self.beads["i"] == "BB"].index[-1], "type"] = "P3"    ## Neutral CTER
             #####################################################################
@@ -294,14 +294,14 @@ Peptoid   1\n
         print(f"Writing itp file  >>> {self.name}.itp")
         print("\nMartinoid for to say:", np.random.choice(TPB_quotes),'\n')
                 
-    def __init__(self, sequence, NTC=False, CTC=False, NTCC=False, CTCC=False, Linear=False, Helical=False):
+    def __init__(self, sequence, N_ter_charged=True, C_ter_charged=False, N_ter_protect=False, C_ter_protect=False, Linear=False, Helical=False):
         # Unpack arguments
         self.seq = sequence.split("-")
         self.name = name = "".join([f"{x.replace('0', '')}-" for x in sequence.split("-")])[:-1]
-        self.NTC = NTC
-        self.CTC = CTC
-        self.NTCC = NTCC
-        self.CTCC = CTCC
+        self.N_ter_charged = N_ter_charged
+        self.C_ter_charged = C_ter_charged
+        self.N_ter_protect = N_ter_protect
+        self.C_ter_protect = C_ter_protect
         self.Linear = Linear
         self.Helical = Helical
         print("Name:", name)
