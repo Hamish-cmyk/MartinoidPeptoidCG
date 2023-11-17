@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: Martinoid
-Version: 0.0.6
+Version: 0.0.7
 Summary: This module was inspired by martinize (http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize) and has been created to perform automatic topology building of peptoids within the MARTINI forcefield (v2.1) in the GROMACS program.
 Home-page: https://github.com/Hamish-cmyk/MartinoidPeptoidCG
 Author: Hamish W. A. Swanson, Alexander van Teijlingen
@@ -97,8 +97,15 @@ After installing Martinoid, simply import the module and pass the sequence and a
 ```python
 import Martinoid
 
-peptoid = Martinoid.Martinoid(sequence = "Nf-Nfe-Nq-Nm-NmO-Nv-Nv-Nv", NTC=True, Helical=True)
+peptoid = Martinoid.Martinoid(sequence = "Nf-Nfe-Nq-Nm-NmO-Nv-Nv-Nv", N_ter_charged=True, Helical=True)
 ```
 
 # Running Simulations
-... need xvg files
+
+Martinoid uses a custom bonded parameter to account for non-harmonic function based on different S/R isomers. You must include this xvg file when you call mdrun.
+
+```bash
+gmx mdrun -tableb angle5_a0.xvg -deffnm Run
+```
+
+
