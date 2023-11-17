@@ -8,7 +8,7 @@ A key difference between Martinoid and Martinize is that the former does not req
 
 ## Installation
 ```bash
-pip install Martinoid
+pip install -U Martinoid
 ```
 or
 ```bash
