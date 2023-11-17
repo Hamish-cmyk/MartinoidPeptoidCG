@@ -85,7 +85,7 @@ After installing Martinoid, simply import the module and pass the sequence and a
 ```python
 import Martinoid
 
-peptoid = Martinoid.Martinoid(sequence = "Nf-Nfe-Nq-Nm-NmO-Nv-Nv-Nv", NTC=True, Helical=True)
+peptoid = Martinoid.Martinoid(sequence = "Nf-Nfe-Nq-Nm-NmO-Nv-Nv-Nv", N_ter_charged=True, Helical=True)
 ```
 
 # Running Simulations
