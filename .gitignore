@@ -26,3 +26,6 @@ slurm*
 *.log
 build/
 UnitTests/
+dist/
+*.egg*
+Martinoid.egg-info/
