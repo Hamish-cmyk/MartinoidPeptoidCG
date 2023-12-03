@@ -1,4 +1,5 @@
 from setuptools import setup
+exec(open('Martinoid/version.py').read())
 
 from pathlib import Path
 this_directory = Path(__file__).parent
@@ -6,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='Martinoid',
-    version='0.0.7',
+    version=__version__,
     description='This module was inspired by martinize (http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize) and has been created to perform automatic topology building of peptoids within the MARTINI forcefield (v2.1) in the GROMACS program.',
     long_description=long_description,
     long_description_content_type='text/markdown',
