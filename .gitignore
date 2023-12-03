@@ -25,3 +25,4 @@ slurm*
 *.tpr
 *.log
 build/
+UnitTests/
