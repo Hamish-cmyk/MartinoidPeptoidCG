@@ -228,7 +228,7 @@ Peptoid   1\n
             resnum = self.beads.at[bead, "residue"] + 1
             charge = charges[typ]
             writ = f"\t{i}\t{typ}\t{resnum}\t{resname}\t{B}\t {i}  {charge} ; \n"
-            print(writ)
+            #print(writ)
             itp.write(writ)
         itp.write("\n[ bonds ]\n")
         for bond in self.bonds.index:
