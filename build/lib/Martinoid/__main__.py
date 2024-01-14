@@ -9,7 +9,7 @@ Created on Thu Sep  7 11:02:13 2023
 
 import argparse
 from Martinoid.Martinoid2 import *
-
+from .version import __version__
 statement = '''
 Martinoid2.py is a script to create Coarse Grain Martinoid 
 input files of peptoids, ready for use in the molecular 

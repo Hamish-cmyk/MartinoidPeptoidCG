@@ -9,6 +9,6 @@ Created on Thu Sep  7 10:40:29 2023
 # import submodules
 from Martinoid import _martinoid_data
 from Martinoid.Martinoid2 import *
-
+from .version import __version__
 
 
