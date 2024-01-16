@@ -1,8 +1,8 @@
 # Martinoid Peptoid CG
 
-This program was originally written as part of the publication title "Martinoid: The Martini Peptoid Force Field", published in the ***Journal of Very Cool Science***
+Originally written as part of the publication title "Martinoid: The Martini Peptoid Force Field", published in the ***Journal of Very Cool Science***.
 
-This module was inspired by martinize (http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize) and has been created to perform automatic topology building of peptoids within the MARTINI forcefield (v2) in the GROMACS program.
+This module was inspired by martinize (http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize) and has been created to perform automatic topology building of peptoids within the MARTINI forcefield (v2.1) in the GROMACS program.
 
 A key difference between Martinoid and Martinize is that the former does not require an input all-atom peptoid structure while Martinize does. This has obvious advantages but does mean the output guessed CG structures [generally] require a greater degree of minimization.
 
@@ -85,15 +85,15 @@ After installing Martinoid, simply import the module and pass the sequence and a
 ```python
 import Martinoid
 
-peptoid = Martinoid.Martinoid(sequence = "Nf-Nfe-Nq-Nm-NmO-Nv-Nv-Nv", N_ter_charged=True, Helical=True)
+peptoid = Martinoid.Martinoid(sequence = "Nf-Nfe-Nq-Nm-NmO-Nv-Nv-Nv", N_ter_charged=True, SS="Helical")
 ```
 
 # Running Simulations
 
-Martinoid uses a custom bonded parameter to account for non-harmonic function based on different S/R isomers. You must include this xvg file when you call mdrun.
+Martinoid uses a custom angle parameter to account for flexible ethyl sidechains (e.g., Nfe). For this reason you must include this .xvg file when you call mdrun.
 
 ```bash
 gmx mdrun -tableb angle5_a0.xvg -deffnm Run
 ```
 
-
+![alt text](images/CustomAngle.png "Custom Angle Parameter")
