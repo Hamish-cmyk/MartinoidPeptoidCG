@@ -1,6 +1,8 @@
 # Martinoid Peptoid CG
 
-Originally written as part of the publication title "Martinoid: The Martini Peptoid Force Field", published in the ***Journal of Very Cool Science***.
+Originally written as part of the publication title "Martinoid: The Martini Peptoid Force Field", published in ***Phys. Chem. Chem. Phys.***. 
+
+https://pubs.rsc.org/en/content/articlehtml/2024/cp/d3cp05907c
 
 This module was inspired by martinize (http://cgmartini.nl/index.php/tools2/proteins-and-bilayers/204-martinize) and has been created to perform automatic topology building of peptoids within the MARTINI forcefield (v2.1) in the GROMACS program.
 
