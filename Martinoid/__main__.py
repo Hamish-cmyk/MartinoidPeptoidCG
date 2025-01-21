@@ -76,12 +76,17 @@ if __name__ == "__main__":
     CTC  = True if args.ct == False else False
     NTCC = args.ntc
     CTCC = args.ctc
-    Linear = args.linear
-    Helical = args.helical
+    if args.linear:
+        SS = "linear"
+    elif args.helical:
+        SS = "helical"
+    else:
+        SS = ""
+
+
     # check that they haven't specified linear and helical together
     assert int(Linear)+int(Helical < 2), "You cannot species --linear and --helical, its one, the other or neither."
 
     #print(args)
-    
-    peptoid = Martinoid(Sequence, NTC, CTC, NTCC, CTCC, Linear, Helical)
+    peptoid = Martinoid(Sequence, NTC, CTC, NTCC, CTCC, SS)
     
